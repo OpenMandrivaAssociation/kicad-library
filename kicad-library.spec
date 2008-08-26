@@ -2,7 +2,7 @@
 
 %define name kicad-library
 %define version 1.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:  Library for kicad (creation of electronic schematic diagrams)
 Name:     %{name}
