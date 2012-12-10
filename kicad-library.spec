@@ -1,32 +1,19 @@
 #define _disable_ld_no_undefined 1
 
-# For library,
-# See http://iut-tice.ujf-grenoble.fr/cao/how_to_download_sources.txt
-# bzr branch lp:~kicad-lib-committers/kicad/library
-#
-# You can get the date by querying:
-# $ bzr log -r-1 --line library/
-# 109: xtony 2010-12-08 Add various modules.
-#
-# $ bzr export --format=tbz2 --root=kicad-library kicad-library-bzr$(bzr revno library/).tar.bz2 library/
-
 %define name kicad-library
-%define date 20101208
-%define revision 109
-%define version 1.1.%{date}.bzr%{revision}
-%define release %mkrel 1
+%define version 1.0
+%define release %mkrel 4
 
-Name:     	%{name}
-Summary:  	Library for kicad (creation of electronic schematic diagrams)
-Version:  	%{version}
-Release:  	%{release}
-Source0:  	%{name}-bzr%{revision}.tar.bz2
-License:  	GPL
-Group:    	Sciences/Computer science
-Url:      	http://www.lis.inpg.fr/realise_au_lis/kicad/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	cmake
-BuildArch:	noarch
+Summary:  Library for kicad (creation of electronic schematic diagrams)
+Name:     %{name}
+Version:  %{version}
+Release:  %{release}
+Source0:  %{name}-%{version}.tar.bz2
+License:  GPL
+Group:    Sciences/Computer science
+Url:      http://www.lis.inpg.fr/realise_au_lis/kicad/
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires: cmake
 
 %description
 Kicad is an open source (GPL) software for the creation of electronic 
@@ -61,3 +48,23 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_datadir}/kicad/library
 %{_datadir}/kicad/modules
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0-4mdv2011.0
++ Revision: 619966
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 1.0-3mdv2010.0
++ Revision: 429687
+- rebuild
+
+* Tue Aug 26 2008 trem <trem@mandriva.org> 1.0-2mdv2009.0
++ Revision: 276412
+- bump new release because last release was eaten by the bs
+
+* Thu Aug 21 2008 trem <trem@mandriva.org> 1.0-1mdv2009.0
++ Revision: 274947
+- import kicad-library
+
+
